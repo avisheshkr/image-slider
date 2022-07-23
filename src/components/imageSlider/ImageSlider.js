@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./slider.scss";
 
 const data = [
@@ -71,6 +71,11 @@ const ImageSlider = () => {
             <div
               className={activeIndex === index ? "activeDot" : "inactiveDot"}
               key={item.id}
+              onClick={() => {
+                setActiveIndex(index);
+                setAnimate(true);
+                setTimeout(() => setAnimate(false), 1000);
+              }}
             ></div>
           );
         })}
